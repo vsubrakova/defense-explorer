@@ -20,6 +20,14 @@ export PATH=$(pwd)/mmseqs/bin:$PATH
 wget https://mmseqs.com/spacedust/spacedust-linux-avx2.tar.gz 
 tar xvzf spacedust-linux-avx2.tar.gz; export PATH=$(pwd)/spacedust/bin/:$PATH
 sudo apt install prodigal
+
+wget https://mmseqs.com/foldseek/foldseek-linux-avx2.tar.gz
+tar xvzf foldseek-linux-avx2.tar.gz; export PATH=$(pwd)/foldseek/bin/:$PATH
+
+#insert your path to foldseek
+/home/vera/Desktop/project_KOT1/foldseek/bin/foldseek databases Alphafold/UniProt refFoldseekDB tmpFolder
+databases Alphafold/UniProt refFoldseekDB tmpFolder 
+
 ```
 Run Prodigal annotation
 ```(bash)
@@ -44,6 +52,9 @@ spacedust createsetdb prodigal_output/*.faa setDB tmpFolder --gff-dir prodigal_o
 Homology search:
 ```(bash)
 spacedust clustersearch setDB setDB result.tsv tmpFolder --threads 1
+
+# With foldseek
+spacedust clustersearch setDB setDB result_foldseek.tsv tmpFolder --search-mode 1
 
 spacedust --remove-tmp-files
 ```
