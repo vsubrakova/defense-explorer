@@ -1,4 +1,8 @@
-# project_KOT1
+# Search of novel immunity systems in the metagenomes of microbial communities
+
+Bacteria are constantly exposed to the threat of infection by bacteriophages, and in response they have developed a variety of defense systems. The best known systems include the restriction-modification (R-M) system, which recognizes and cuts foreign DNA, and the CRISPR-Cas system, which provides acquired immunity by “remembering” previously attacked phages. In the genomes of microorganisms, immune systems often colocalize with each other, forming protective islands. These regions are an excellent target for finding new immune systems, since previously unexplored systems can colocalize with already known ones.
+
+Thus, the goal of the project is to **find new immune systems in bacteria** by analyzing genes that colocalize with already known systems on a new metagenome dataset.
 
 ## Preparations
 
@@ -8,54 +12,20 @@ git clone git@github.com:vsubrakova/project_KOT1.git
 cd project_KOT1
 unzip loci.zip
 ```
-Also we would need to prepare environment and install Spacedust:
+
+## Pipeline
+
+### MMseqs2 part 0 - protein clustering
+
+Run protein clustering with MMseqs2:
 ```(bash)
-mamba create -n spacedust
-mamba activate spacedust
-# Install MMseqs2
-wget https://mmseqs.com/latest/mmseqs-linux-avx2.tar.gz
-tar xvf mmseqs-linux-avx2.tar.gz
-export PATH=$(pwd)/mmseqs/bin:$PATH
-# I have Linux AVX2 build (check using: cat /proc/cpuinfo | grep avx2). For other builds please refer to spacedust manual
-wget https://mmseqs.com/spacedust/spacedust-linux-avx2.tar.gz 
-tar xvzf spacedust-linux-avx2.tar.gz; export PATH=$(pwd)/spacedust/bin/:$PATH
-sudo apt install prodigal
-
-wget https://mmseqs.com/foldseek/foldseek-linux-avx2.tar.gz
-tar xvzf foldseek-linux-avx2.tar.gz; export PATH=$(pwd)/foldseek/bin/:$PATH
-
-#insert your path to foldseek
-/home/vera/Desktop/project_KOT1/foldseek/bin/foldseek databases Alphafold/UniProt refFoldseekDB tmpFolder
-databases Alphafold/UniProt refFoldseekDB tmpFolder 
-
-```
-Run Prodigal annotation
-```(bash)
-mkdir -p prodigal_output
-
-for fna in split_fna/*.fna; do
-    base=$(basename "$fna" .fna)
-    prodigal -i "$fna" \
-             -a "prodigal_output/${base}.faa" \
-             -d "prodigal_output/${base}_genes.fna" \
-             -o "prodigal_output/${base}.gff" \
-             -f gff
-done
-```
-## Running Spacedust
-
-Create annotated protein database for Spacedust
-```(bash)
-spacedust createsetdb prodigal_output/*.faa setDB tmpFolder --gff-dir prodigal_output/ --gff-type CDS
+mkdir ./result_mmseq_270
+mmseqs createdb ./split_faa/*.faa ./result_mmseq_270/DB_270
+mkdir ./result_mmseq_270/tmp
+mmseqs cluster --min-seq-id 0.3 -c 0.8 ./result_mmseq_270/DB_270 ./result_mmseq_270/DB_270_clu tmp
+mmseqs createtsv ./result_mmseq_270/DB_270 ./result_mmseq_270/DB_270 ./result_mmseq_270/DB_270_clu ./result_mmseq_270/DB_270_clu.tsv
 ```
 
-Homology search:
-```(bash)
-spacedust clustersearch setDB setDB result.tsv tmpFolder --threads 1
+### Python part 1 - similarity matrix creation
 
-# With foldseek
-spacedust clustersearch setDB setDB result_foldseek.tsv tmpFolder --search-mode 1
-
-spacedust --remove-tmp-files
-```
-
+### R part 2 - co-localisation of genes
