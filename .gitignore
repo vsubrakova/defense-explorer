@@ -1,2 +1,5 @@
 ./__pycache__
 scripts/__pycache__/
+data/modules_annotation.csv
+data/modules_2.csv
+data/filtered_DB_2.csv
