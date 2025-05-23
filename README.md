@@ -104,7 +104,7 @@ You can install them using:
 ```{bash}
 conda create -n defense_explorer python=3.10
 conda activate defense_explorer
-pip install -r dependencies.txt
+pip install -r requirements.txt
 ```
 
 ### Literature
