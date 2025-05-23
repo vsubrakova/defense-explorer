@@ -104,13 +104,4 @@ def calculate_pairwise_distance(modules: pd.DataFrame, filtered_DB: pd.DataFrame
 
     pairwise_df = pd.DataFrame(cluster_pair_rows)
     
-    # Plot histogram of average distances per module
-    avg_distance_per_module = pairwise_df.groupby('module_id')['distance'].mean().reset_index()
-
-    plt.hist(avg_distance_per_module['distance'], edgecolor='black')
-    plt.title('Average distance in module')
-    plt.xlabel('Average distance')
-    plt.ylabel('Number of modules')
-    plt.show()
-    
     return pairwise_df
