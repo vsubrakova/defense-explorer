@@ -1,16 +1,15 @@
 import pandas as pd
 import re
 import ast
-import matplotlib.pyplot as plt
 
-def calculate_pairwise_distance(modules: pd.DataFrame, filtered_DB: pd.DataFrame):
+def calculate_pairwise_distance(result: pd.DataFrame, filtered_DB: pd.DataFrame):
     """
     Analyze protein distances between clusters within modules and plot the average distance histogram.
     Adapted to modules DataFrame where cluster_ids are string representations of lists, and cluster_inds are tuples.
 
     Parameters:
     -----------
-    modules : pd.DataFrame
+    result : pd.DataFrame
         DataFrame containing module information including 'module_id', 'cluster_ids' (list-like string).
     filtered_DB : pd.DataFrame
         DataFrame containing protein data with 'cluster_id' and 'protein_id' columns.
@@ -21,9 +20,8 @@ def calculate_pairwise_distance(modules: pd.DataFrame, filtered_DB: pd.DataFrame
         DataFrame with pairwise protein prefix distances between clusters per module.
     """
 
-    # Convert cluster_ids string to actual list for each row
-    modules = modules.copy()
-    modules['cluster_ids'] = modules['cluster_ids'].apply(ast.literal_eval)
+    # # Convert cluster_ids string to actual list for each row
+    modules = result.copy()
 
     # Group proteins by cluster_id and aggregate protein IDs into lists
     clusters = filtered_DB.groupby('cluster_id')['protein_id'].apply(list).reset_index()
