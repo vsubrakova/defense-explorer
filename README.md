@@ -30,7 +30,7 @@ Data is presented in GenBank format, see example in the `./data/gbk` folder.
 
 1) **Contig Parsing**
 
-To find novel immune systems that co-localize, contigs were split into three parts: upstream, immune system, and downstream regions. In this way, proteins would be situated in the same region. Run this command from data/gbk folder:
+To find novel immune systems that co-localize, contigs were split into three parts: upstream, immune system, and downstream regions. In this way, proteins would be situated in the same region. Run this command from `data/gbk` folder:
 
 ```{bash}
 ./1_parsing_gbk.sh
@@ -52,7 +52,7 @@ To group homologous proteins, amino acid sequences were clustered with MMseqs2 (
 To perform clustering of nucleotide sequences, getting representative sequences, selection of amino acid sequences and followed protein clustering run:
 
 ```{bash}
-./2_clusterin.sh
+./2_clustering.sh
 ```
 As a result, three additional folders are created in `./data` folder.
 Next steps of pipline are described in `.ipynb` notebooks.
