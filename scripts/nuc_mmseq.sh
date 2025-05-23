@@ -3,6 +3,11 @@
 # create folder for nucleotide seqs 
 echo "Nucleic acid clustering"
 
+cd ./data
+
+# for exsisting results
+rm -r nuc_mmseq2_results
+
 mkdir nuc_mmseq2_results
 cd ./nuc_mmseq2_results
 # create folder for logs
@@ -11,7 +16,7 @@ mkdir 0_logs
 # create folder for database
 mkdir 1_createDB
 # merge all parsed files
-find ../test_data/nuc_files -name '*.fna' -exec cat {} + > concat.fna
+find ../splitted_fna -name '*.fna' -exec cat {} + > concat.fna
 echo "Number of nucleotide seqs in files: $(grep '>' concat.fna | wc -l)"
 
 # create database

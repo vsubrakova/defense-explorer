@@ -1,5 +1,10 @@
 # Protein clustering
 
+cd ./data
+
+# for exsisting results
+rm -r mmseq2_results
+
 # create folder for Protein clustering results
 mkdir mmseq2_results
 # copy filtreated protein seqs into directory
