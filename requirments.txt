@@ -1,0 +1,8 @@
+biopython==1.78
+mmseqs2==17.b804f
+pandas==2.2.3
+numpy==1.26.4
+scipy==1.15.1
+markov-clustering==0.0.6.dev0
+matplotlib==3.10.0
+seaborn==0.13.2
