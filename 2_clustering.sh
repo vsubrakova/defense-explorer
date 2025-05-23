@@ -6,7 +6,7 @@ bash ./scripts/nuc_mmseq.sh
 # create folder for protein selection results
 mkdir filtrated_faa
 cd ./filtrated_faa
-find ../test_data/protein_files -name '*.faa' -exec cat {} + > ./concat.faa
+find ../data/protein_files -name '*.faa' -exec cat {} + > ./concat.faa
 cp ../nuc_mmseq2_results/4_create_repBD/headers.txt .
 # select representative sequences
 python3 ../scripts/filtrate_faa.py
