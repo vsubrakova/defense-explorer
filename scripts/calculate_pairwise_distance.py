@@ -1,6 +1,5 @@
 import pandas as pd
 import re
-import ast
 
 def calculate_pairwise_distance(result: pd.DataFrame, filtered_DB: pd.DataFrame):
     """
