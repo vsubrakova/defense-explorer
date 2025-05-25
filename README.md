@@ -36,7 +36,7 @@ To find novel immune systems that co-localize, contigs were split into three par
 ./1_parsing_gbk.sh
 ```
 As a result, two folders are created: `./data/splitted_fna` with parsed nucleotide sequences and `./data/splitted_faa` with parsed amino acid sequences. 
-Note: for the sake of demonstration, here we provided example.gbk file with jibbery protein sequences and coordinates. Nevertheless, the script extracts protein sequences and nucleoride sequences based on region from example.gbk (upstream, immune system, and downstream regions). 
+*Note: for the sake of demonstration, here we provided example.gbk file with jibberish protein sequences and coordinates. Nevertheless, the script correctly extracts protein sequences and nucleotide sequences based on region from example.gbk (upstream, immune system, and downstream regions).*
 
 2) **Representative Sequence Selection**
 
