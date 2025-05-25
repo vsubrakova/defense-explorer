@@ -30,7 +30,7 @@ Data is presented in GenBank format, see example in the `./data/gbk` folder.
 
 1) **Contig Parsing**
 
-To find novel immune systems that co-localize, contigs were split into three parts: upstream, immune system, and downstream regions. In this way, proteins would be situated in the same region. Run this command from `data/gbk` folder:
+To find novel immune systems that co-localize, contigs were split into three parts: upstream, immune system, and downstream regions. In this way, proteins would be situated in the same region. Run this command:
 
 ```{bash}
 ./1_parsing_gbk.sh
@@ -54,7 +54,7 @@ To perform clustering of nucleotide sequences, getting representative sequences,
 ```{bash}
 ./2_clustering.sh
 ```
-As a result, three additional folders are created in `./data` folder(`nuc_mmseq_results/`,`filtrated_faa`,`mmseq_results`).
+As a result, three additional folders are created in `./data` folder: `nuc_mmseq_results/`(information about nucleotide clustering),`filtrated_faa`(information about filtratition step),`mmseq_results`(information about protein clustering)).
 
 ```text
 data/
@@ -68,16 +68,15 @@ data/
 ├──...
 
 ```
-Next steps of pipline are described in `analyze_modules.ipynb` notebook.
+Next steps of pipline are described in `analyze_modules.ipynb` notebook. Additional graphs are presented in `graph-statistics.ipynb` notebook.
 
 4) **Statistical Significance of Cluster Co-Occurrence**:
 
-To identify PCs with statistically significant co-localization patterns in genomic regions, we performed the following analysis pipeline: binary matrix → co-occurrence → hypergeometric p-values → FDR correction → similarity scoring; Similar approach was deascribed in artical [3].
+To identify PCs with statistically significant co-localization patterns in genomic regions, we created a binary presence-absence matrix of protein clusters across genomic regions. To assess significance, we applied the hypergeometric test, corrected p-values with the Benjamini-Hochberg method, and converted them to similarity scores using a negative log10 transformation. Similar approach was deascribed in artical [3].
 
 5) **Graph Clustering**
 
 To group frequently co-localizing PCs into functional units, we applied MCL graph clustering (inflation = 2);
-
 
 6) **Select Modules and Protein Annotation**
 
@@ -86,7 +85,31 @@ We manually selected non-immune modules (containing no annotated defense system 
 <div align="center">
   <img src="./images/pipline_part2.png" width="70%">
 </div>
- 
+
+### Results
+
+From an initial 948K amino acid sequences extracted from GenBank files, we selected 730K high-quality representatives. MMseqs2 clustering produced 362K protein clusters. To ensure robust analysis, we retained only clusters containing three or more proteins, yielding 43K high-confidence clusters. The size distribution of these filtered clusters is shown below.
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="./images/cluster_distribution_two.png" width="40%">
+  <img src="./images/region_distribution.png" width="40%">
+</div>
+
+Through a multi-stage analytical pipeline involving Steps 4 and 5, we identified 21K functional modules. After removing singleton modules, we assessed the separation between modules enriched with immune-related proteins versus those primarily composed of non-immune proteins. The module size distribution and comparison of immune fraction distribution are presented below.
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="./images/modules_histogram.png" width="40%">
+  <img src="./images/heatmap.png" width="50%">
+</div>
+
+From 21K modules, we selected those with >20 proteins per cluster and no immune system proteins. Only modules consisting of two protein clusters met these criteria. We chose modules with short pairwise distances (1–2 proteins) and a high occurrence of clusters (>70% for the smallest cluster), identifying 5 notable candidates likely bearing immune system features. 
+
+In the first three modules, one of the proteins belonging to the toxin-antitoxin systems was identified, while the other two modules contain undefined Pfam and GO proteins, making it difficult to predict the functions of the system.
+
+<div align="center">
+  <img src="./images/pipline_part3.png" width="70%">
+</div>
+
 Final table contatin all discovered modules located in `./data/tables/filtrated_results_annotated.csv` and have the next columns:
 
 
@@ -103,28 +126,6 @@ Final table contatin all discovered modules located in `./data/tables/filtrated_
 | `GO_terms`        | GO term annotation                                                          |
 | `pfam_term`       | Pfam annotation                                                             |
 | `region`          | Frequency count of the region's occurrence                                  |
-
-
-### Results
-
-We developed a computational pipeline to identify co-occurring protein clusters and infer functional modules from metagenomic data. Protein clusters with fewer than two proteins were filtered out to reduce noise.
-The resulting cluster size distribution and region count are shown below.
-
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="./images/cluster_distribution_two.png" width="40%">
-  <img src="./images/region_distribution.png" width="40%">
-</div>
-
-A binary presence-absence matrix of protein clusters across genomic regions was created. To assess significance, we applied the hypergeometric test, corrected p-values with the Benjamini-Hochberg method, and converted them to similarity scores using a negative log10 transformation. Normalizing these scores by row sums produced a transition probability matrix, which was clustered using the Markov Cluster Algorithm.
-
-This approach identified approximately 21,000 functional modules, mostly small (1–2 clusters). Modules showed clear functional separation, containing predominantly immune or non-immune proteins, demonstrating effective modularization.
-
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="./images/modules_histogram.png" width="40%">
-  <img src="./images/heatmap.png" width="50%">
-</div>
-
-We further filtered modules for size (>20 proteins) and strong co-occurrence, parsing GO and Pfam annotations. Five notable modules were highlighted, including ParED-, VapBC-, and HipAB-like toxin-antitoxin systems; a CBASS-like module with thymidylate kinase and putative effector; and a LUD-like module potentially linked to oxidative stress response.
 
 
 **Requirements for the pipeline**: 
@@ -148,7 +149,6 @@ You can install them using conda:
 ```{bash}
 conda env create -n defense_explorer -f environment.yml python=3.10
 conda activate defense_explorer
-
 ```
 
 ### Literature
