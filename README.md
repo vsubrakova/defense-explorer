@@ -55,11 +55,12 @@ To perform clustering of nucleotide sequences, getting representative sequences,
 ./2_clustering.sh
 ```
 As a result, three additional folders are created in `./data` folder.
-Next steps of pipline are described in `.ipynb` notebooks.
+
+Next steps of pipline are described in `analyze_modules.ipynb` notebook.
 
 4) **Statistical Significance of Cluster Co-Occurrence**:
 
-To identify PCs with statistically significant co-localization patterns in genomic regions, we performed the following analysis pipeline: binary matrix → co-occurrence → hypergeometric p-values → FDR correction → similarity scoring;
+To identify PCs with statistically significant co-localization patterns in genomic regions, we performed the following analysis pipeline: binary matrix → co-occurrence → hypergeometric p-values → FDR correction → similarity scoring; Similar approach was deascribed in artical [3].
 
 5) **Graph Clustering**
 
@@ -76,11 +77,22 @@ We manually selected non-immune modules (containing no annotated defense system 
 
 ### Results
 
-We developed a computational pipeline to identify co-occurring protein clusters and infer functional modules from metagenomic data. Protein clusters with fewer than two proteins were filtered out to reduce noise. A binary presence-absence matrix of protein clusters across genomic regions was created, and co-occurrence was quantified via the dot product of this matrix with its transpose.
+We developed a computational pipeline to identify co-occurring protein clusters and infer functional modules from metagenomic data. Protein clusters with fewer than two proteins were filtered out to reduce noise.
+The resulting cluster size distribution and region count are shown below.
 
-To assess significance, we applied the hypergeometric test, corrected p-values with the Benjamini-Hochberg method, and converted them to similarity scores using a negative log10 transformation with a threshold filter. Normalizing these scores by row sums produced a transition probability matrix, which was clustered using the Markov Cluster Algorithm.
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="./images/cluster_distribution_two.png" width="40%">
+  <img src="./images/region_distribution.png" width="40%">
+</div>
 
-This approach identified approximately 21,000 functional modules, mostly small (1–2 clusters), forming a sparse similarity graph typical of biological systems. Modules showed clear functional separation, containing predominantly immune or non-immune proteins, demonstrating effective modularization.
+A binary presence-absence matrix of protein clusters across genomic regions was created. To assess significance, we applied the hypergeometric test, corrected p-values with the Benjamini-Hochberg method, and converted them to similarity scores using a negative log10 transformation. Normalizing these scores by row sums produced a transition probability matrix, which was clustered using the Markov Cluster Algorithm.
+
+This approach identified approximately 21,000 functional modules, mostly small (1–2 clusters). Modules showed clear functional separation, containing predominantly immune or non-immune proteins, demonstrating effective modularization.
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="./images/modules_histogram.png" width="40%">
+  <img src="./images/heatmap.png" width="50%">
+</div>
 
 We further filtered modules for size (>20 proteins) and strong co-occurrence, parsing GO and Pfam annotations. Five notable modules were highlighted, including ParED-, VapBC-, and HipAB-like toxin-antitoxin systems; a CBASS-like module with thymidylate kinase and putative effector; and a LUD-like module potentially linked to oxidative stress response.
 
@@ -96,7 +108,8 @@ numpy==1.26.4
 scipy==1.15.1  
 markov-clustering==0.0.6.dev0  
 matplotlib==3.10.0  
-seaborn==0.13.2  
+seaborn==0.13.2
+networkx==3.4.2  
 ```
 
 You can install them using:
@@ -110,3 +123,4 @@ pip install -r requirements.txt
 ### Literature
 1. Leighton J Payne, Sean Meaden, Mario R Mestre, Chris Palmer, Nicolás Toro, Peter C Fineran, Simon A Jackson, PADLOC: a web server for the identification of antiviral defence systems in microbial genomes, Nucleic Acids Research, Volume 50, Issue W1, 5 July 2022, Pages W541–W550, https://doi.org/10.1093/nar/gkac400
 2. Tesson, F., Hervé, A., Mordret, E., Touchon, M., d'Humières, C., Cury, J., & Bernheim, A. (2022). Systematic and quantitative view of the antiviral arsenal of prokaryotes. Nature communications, 13(1), 2561. https://doi.org/10.1038/s41467-022-30269-9
+3. Bolduc B, Jang HB, Doulcier G, You Z, Roux S, Sullivan MB. 2017. vConTACT: an iVirus tool to classify double-stranded DNA viruses that infect Archaea and Bacteria. PeerJ 5:e3243 https://doi.org/10.7717/peerj.3243
