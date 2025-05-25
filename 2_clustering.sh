@@ -16,7 +16,7 @@ echo "Number of headers in headers $(wc -l headers.txt)"
 echo "Number of proteins after filtration $(grep '>' concat_filtrated.faa| wc -l)"
 cd ../../
 
-# # get protein clusters
+# get protein clusters
 bash ./scripts/protein_mmseq.sh
 echo "Number of unique clusters $(awk '{print $1}' ./data/mmseq2_results/3_output_tsv/DB_clu.tsv | sort | uniq | wc -l)"
 echo "Number of unique proteins $(awk '{print $2}' ./data/mmseq2_results/3_output_tsv/DB_clu.tsv | sort | uniq | wc -l)"

@@ -1,0 +1,11 @@
+module_id,module_size,cluster_id,cluster_ind,cluster_sizes,coocurance,immune,average_distance,cluster_size,GO_terms,pfam_term,region
+14191,2,sample_2485_contig_1773_9,22125,30,20,0,0.0,30,-,"Bacterial antitoxin of type II TA system, VapB : 22; ","downstream: 15, immuneisland: 0, upstream: 15"
+14191,2,sample_3118_contig_19531_10,24243,23,20,0,0.0,23,-,PIN domain : 2; ,"downstream: 13, immuneisland: 0, upstream: 10"
+12963,2,sample_1849_contig_6904_6,19614,22,20,0,0.0,22,-,-,"downstream: 7, immuneisland: 1, upstream: 14"
+12963,2,sample_2487_contig_1607_8,22585,22,20,0,0.0,22,-,"ParE toxin of type II toxin-antitoxin system, parDE : 1; ","downstream: 9, immuneisland: 1, upstream: 12"
+12647,2,sample_17807_contig_5401_4,18988,24,19,0,0.0,24,-,-,"downstream: 17, immuneisland: 0, upstream: 7"
+12647,2,sample_5535_contig_9_143,33719,23,19,0,0.0,23,dTMP kinase activity : 23; ATP binding : 23; dTDP biosynthetic process : 23; ,Thymidylate kinase : 23; ,"downstream: 14, immuneisland: 0, upstream: 9"
+3018,2,sample_14219_contig_4171_3,3527,25,18,0,1.1111111111111112,25,-,Cysteine-rich domain : 21; ,"downstream: 8, immuneisland: 0, upstream: 17"
+3018,2,sample_17780_contig_2415_2,18357,29,18,0,1.1111111111111112,29,-,LUD domain : 29; ,"downstream: 10, immuneisland: 0, upstream: 19"
+1400,2,sample_1182_contig_3641_12,1608,22,16,0,0.0,22,-,HipA-like C-terminal domain : 22; ,"downstream: 11, immuneisland: 0, upstream: 11"
+1400,2,sample_1849_contig_355_3,19517,24,16,0,0.0,24,-,-,"downstream: 12, immuneisland: 0, upstream: 12"
