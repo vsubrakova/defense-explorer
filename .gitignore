@@ -6,7 +6,10 @@ data/modules_annotation.csv
 data/modules_2.csv
 data/filtered_DB_2.csv
 
-# hide technical info 
+# hide technical info
+data/nuc_mmseq2_results/ 
 data/filtrated_faa/
-data/mmseq2_results/
-data/nuc_mmseq2_results/
+data/mmseq2_results/0_logs
+data/mmseq2_results/1_createDB
+data/mmseq2_results/2_cluster_results
+data/mmseq2_results/concat_filtrated.faa

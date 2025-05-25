@@ -54,8 +54,20 @@ To perform clustering of nucleotide sequences, getting representative sequences,
 ```{bash}
 ./2_clustering.sh
 ```
-As a result, three additional folders are created in `./data` folder.
+As a result, three additional folders are created in `./data` folder(`nuc_mmseq_results/`,`filtrated_faa`,`mmseq_results`).
 
+```text
+data/
+│
+├── nuc_mmseq_results/ # nucleotide clustering data (hidden)
+├── filtrated_faa/     # results of representative filtrating (hidden)
+├── mmseq_results/     # protein clustering data (partly hidden)
+│            ├── 3_output_csv
+│                     ├── DB_clu.tsv # final table with protein cluster
+│                                             name and protein name
+├──...
+
+```
 Next steps of pipline are described in `analyze_modules.ipynb` notebook.
 
 4) **Statistical Significance of Cluster Co-Occurrence**:
