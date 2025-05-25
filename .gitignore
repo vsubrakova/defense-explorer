@@ -13,3 +13,7 @@ data/mmseq2_results/0_logs
 data/mmseq2_results/1_createDB
 data/mmseq2_results/2_cluster_results
 data/mmseq2_results/concat_filtrated.faa
+
+/data/tables/filtered_DB.csv
+/data/tables/modules_with_filtration.csv
+/data/tables/modules_without_filtration.csv

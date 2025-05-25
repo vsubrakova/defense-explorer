@@ -86,6 +86,24 @@ We manually selected non-immune modules (containing no annotated defense system 
 <div align="center">
   <img src="./images/pipline_part2.png" width="70%">
 </div>
+ 
+Final table contatin all discovered modules located in `./data/tables/filtrated_results_annotated.csv` and have the next columns:
+
+
+| Field             | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| `module_id`       | Module number                                                               |
+| `module_size`     | Module size (number of protein clusters in the module)                      |
+| `cluster_id`      | Protein cluster name                                                        |
+| `cluster_ind`     | Protein cluster index number                                                |
+| `cluster_sizes`   | Protein cluster size (number of proteins in protein cluster)                |
+| `coocurance`      | Region co-occurrence (number of identical regions across all module clusters)|
+| `immune`          | Number of immune proteins in the module                                     |
+| `average_distance`| Average pairwise distance between clusters in the same region               |
+| `GO_terms`        | GO term annotation                                                          |
+| `pfam_term`       | Pfam annotation                                                             |
+| `region`          | Frequency count of the region's occurrence                                  |
+
 
 ### Results
 
@@ -107,6 +125,7 @@ This approach identified approximately 21,000 functional modules, mostly small (
 </div>
 
 We further filtered modules for size (>20 proteins) and strong co-occurrence, parsing GO and Pfam annotations. Five notable modules were highlighted, including ParED-, VapBC-, and HipAB-like toxin-antitoxin systems; a CBASS-like module with thymidylate kinase and putative effector; and a LUD-like module potentially linked to oxidative stress response.
+
 
 **Requirements for the pipeline**: 
 

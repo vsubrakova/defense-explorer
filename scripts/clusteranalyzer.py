@@ -380,7 +380,7 @@ def assemble_results(
         Series with cluster_id as index
     cluster_names : pd.Index
         Index containing cluster names (mapping from positions to cluster IDs)
-    n : int, optional
+    min_module_size : int, optional
         Minimum module size to include (default: 1)
 
     Returns:
