@@ -129,7 +129,7 @@ We further filtered modules for size (>20 proteins) and strong co-occurrence, pa
 
 **Requirements for the pipeline**: 
 
-This project requires the following Python packages:
+This project requires the following packages:
 
 ```
 biopython==1.78  
@@ -143,12 +143,12 @@ seaborn==0.13.2
 networkx==3.4.2  
 ```
 
-You can install them using:
+You can install them using conda:
 
 ```{bash}
-conda create -n defense_explorer python=3.10
+conda env create -n defense_explorer -f environment.yml python=3.10
 conda activate defense_explorer
-pip install -r requirements.txt
+
 ```
 
 ### Literature
