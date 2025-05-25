@@ -1,0 +1,22 @@
+# trash
+__pycache__
+
+# data
+data/modules_annotation.csv
+data/modules_2.csv
+data/filtered_DB_2.csv
+
+# hidden data
+data/nuc_mmseq2_results/ 
+data/filtrated_faa/
+data/mmseq2_results/0_logs
+data/mmseq2_results/1_createDB
+data/mmseq2_results/2_cluster_results
+data/mmseq2_results/concat_filtrated.faa
+data/annotation.csv
+
+# data for vizualization
+/data/tables/filtered_DB.csv
+/data/tables/modules_with_filtration.csv
+/data/tables/modules_without_filtration.csv
+

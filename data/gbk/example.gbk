@@ -1,0 +1,191 @@
+LOCUS       contig_2              120 bp    DNA              UNK 25-JAN-2025
+DEFINITION  sample_14969_contig_2.
+ACCESSION   contig_2
+VERSION     contig_2
+KEYWORDS    .
+SOURCE      14969_metagenome_2_contig
+  ORGANISM  .
+            .
+COMMENT     ##defense_systems_Data-START##
+            Orig. start             :: 1
+            Orig. end               :: 628174
+            Run date                :: JAN-2025
+            Note :: This is a single cluster extracted from metagenome!
+            protocluster_max_radius :: 15
+            padloc_version          :: 2.0
+            defensefinder_version   :: 1.3.0
+            ##defense_systems_Data-END##
+FEATURES             Location/Qualifiers
+     protocluster    2..29164
+                     /protocluster_id=1
+                     /product_family="PDC-S03"
+                     /product_df="N.A."
+                     /product_pl="PDC-S03"
+                     /contig_edge=False
+     CDS             complement(2..10)
+                     /ID="contig_2_1"
+                     /gc="56"
+                     /gene="gene_contig_2_1"
+                     /gene_type="bacteria"
+                     /length="504"
+                     /partial="10"
+                     /phase="0"
+                     /score="27.86"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="NKLSFFJIFJIJFJNNVBJBIDHIFJLKFLNC"
+                     /protocluster_id="1"
+     CDS             complement(5..16)
+                     /ID="contig_2_2"
+                     /gc="58"
+                     /gene="gene_contig_2_2"
+                     /gene_type="archaea"
+                     /length="258"
+                     /phase="0"
+                     /score="0.67"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="JDJAOIJDPOPOWDJKNCJSIOJOPCJNIUSGDTUYGHJOGDOHJVFSJ"
+                     /protocluster_id="1"
+     CDS             complement(3..13)
+                     /ID="contig_2_3"
+                     /gc="59"
+                     /gene="gene_contig_2_3"
+                     /gene_type="bacteria"
+                     /length="1380"
+                     /phase="0"
+                     /score="74.25"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="KDBFHKJHFJHIQUHOIFJVBNCBLIJFPPEPFIHDUYFUYGHFBDNBKJSHFJSKF"
+                     /protocluster_id="1"
+     CDS             complement(10..18)
+                     /ID="contig_2_4"
+                     /gc="64"
+                     /gene="gene_contig_2_4"
+                     /gene_type="bacteria"
+                     /length="789"
+                     /phase="0"
+                     /score="60.23"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="HBKJSKDKPOIUDUYTUYIUIOKNBVCXSDFYUIJHGF"
+                     /protocluster_id="1"
+     proto_core      7864..8487
+                     /genes_id="contig_2_9"
+                     /number_of_genes=1
+                     /genes_df="N.A."
+                     /genes_pl="PDC-S03"
+                     /function="antiphage-defense"
+                     /product_family="PDC-S03"
+                     /product_df="N.A."
+                     /product_pl="PDC-S03"
+                     /protocluster_id=1
+     CDS             1..14
+                     /ID="contig_2_9"
+                     /gc="61"
+                     /gene="gene_contig_2_9"
+                     /gene_type="bacteria"
+                     /length="624"
+                     /phase="0"
+                     /score="35.48"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="KJSHFIPAJKBJVGJHBJKHPJAIOHJVCBJNOAJHAHAJIFJHGWTJGHP"
+                     /gene_functions="antiphage-defense (padloc-mgm) PDC-S03:
+                     PDC-S03"
+                     /gene_kind="antiphage-defense"
+                     /protocluster_id="1"
+     CDS             complement(4..16)
+                     /ID="contig_2_10"
+                     /gc="64"
+                     /gene="gene_contig_2_10"
+                     /gene_type="bacteria"
+                     /length="180"
+                     /phase="0"
+                     /score="1.46"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="FJSGHBFIPOAFJOHIBJSHFBJONLKJFHJBKJBAILFH"
+                     /protocluster_id="1"
+     CDS             15..19
+                     /ID="contig_2_11"
+                     /gc="60"
+                     /gene="gene_contig_2_11"
+                     /gene_type="bacteria"
+                     /length="333"
+                     /phase="0"
+                     /score="0.41"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="HKBDSJNOFPAOKHJFVBJAKBHFJHKJLKAJKFHJBKJA"
+                     /protocluster_id="1"
+     CDS             15..25
+                     /ID="contig_2_9"
+                     /gc="61"
+                     /gene="gene_contig_2_9"
+                     /gene_type="bacteria"
+                     /length="624"
+                     /phase="0"
+                     /score="35.48"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="PAOIUYTRETTYUIOANBAVHBJNDAJN"
+                     /gene_functions="antiphage-defense (padloc-mgm) PDC-S03:
+                     PDC-S03"
+                     /gene_kind="antiphage-defense"
+                     /protocluster_id="2"
+     CDS             complement(8..14)
+                     /ID="contig_2_95"
+                     /gc="58"
+                     /gene="gene_contig_2_95"
+                     /gene_type="bacteria"
+                     /length="396"
+                     /phase="0"
+                     /score="12.39"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="DGHFJSJHFGYUEGFYGHDHBJJBFVGHJHKUFIYUDF"
+                     /protocluster_id="2"
+     CDS             complement(15..19)
+                     /ID="contig_2_102"
+                     /gc="61"
+                     /gene="gene_contig_2_102"
+                     /gene_type="bacteria"
+                     /length="741"
+                     /phase="0"
+                     /score="29.81"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="GAJDHFBJNKPSOIAUYTRTUYIUIWJNBVBNM"
+                     /protocluster_id="4"
+     CDS             complement(15..22)
+                     /ID="contig_2_103"
+                     /gc="61"
+                     /gene="gene_contig_2_103"
+                     /gene_type="bacteria"
+                     /length="282"
+                     /phase="0"
+                     /score="11.81"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="VBNCJAJFNJEKVBOPOIUYQTFYIHBKDJNVJKB"
+                     /protocluster_id="4"
+     CDS             16..26
+                     /ID="contig_2_9"
+                     /gc="61"
+                     /gene="gene_contig_2_9"
+                     /gene_type="bacteria"
+                     /length="624"
+                     /phase="0"
+                     /score="35.48"
+                     /source="GeneMark.hmm2"
+                     /transl_table=11
+                     /translation="PABNMPAOIUYTRTYUIOALKMNBVCA"
+                     /gene_functions="antiphage-defense (padloc-mgm) PDC-S03:
+                     PDC-S03"
+                     /gene_kind="antiphage-defense"
+                     /protocluster_id="4"
+ORIGIN
+        1 atgcagtcac atgcagtcac tgtcgcgggt agtgacgcat gtccatggct agtgacgcat
+       61 tgttacggag atggcatgga aatggcatta aaggttccat aattacgtta aaggaaattc
