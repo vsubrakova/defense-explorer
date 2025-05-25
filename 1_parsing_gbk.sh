@@ -1,6 +1,3 @@
-conda init
-conda activate spacedust
-
 mkdir ./data/splitted_faa ./data/splitted_fna
 
 
