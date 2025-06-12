@@ -1,8 +1,9 @@
-import pandas as pd
+from concurrent.futures import ThreadPoolExecutor
 
+import pandas as pd
 # take GO annotation
 import requests
-from concurrent.futures import ThreadPoolExecutor
+
 
 # Set annotation
 def annotation_transformation(annotation: pd.DataFrame) -> pd.DataFrame:

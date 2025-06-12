@@ -1,9 +1,10 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-import networkx as nx
 from itertools import combinations
+
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+import pandas as pd
+import seaborn as sns
 
 
 def vizualize_region_distribution(clusters: pd.DataFrame) -> None:

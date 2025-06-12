@@ -1,9 +1,9 @@
-import pandas as pd
-import numpy as np
-from scipy.sparse import csr_matrix
-from statsmodels.stats.multitest import multipletests
-from scipy.stats import hypergeom
 import markov_clustering as mc
+import numpy as np
+import pandas as pd
+from scipy.sparse import csr_matrix
+from scipy.stats import hypergeom
+from statsmodels.stats.multitest import multipletests
 
 pd.set_option("display.max_colwidth", 200)
 
