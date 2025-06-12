@@ -24,7 +24,7 @@ A total of 217 novel bacterial metagenome samples were collected from the follow
 
 Prior to this analysis, the samples were screened for immune systems using PADLOC [1] and DefenseFinder [2] tools. 
 
-Data is presented in GenBank format, see example in the `./data/gbk` folder.
+Test data is presented in GenBank format, see example in the `./data/gbk` folder. The experimental data underlying these results are confidential and protected by an NDA. 
 
 ### Workflow
 
