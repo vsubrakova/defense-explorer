@@ -87,8 +87,8 @@ def split_gbk_by_protocluster_faa(filepath, output_dir):
                     # Create a SeqRecord and append to the list
                     seq_record = SeqRecord(Seq(aa_seq), id=header, description="")
                     seq_records.append(seq_record)
-                except Exception as e:
-                    print(f"Error extracting feature: {e}")
+                except IndexError:
+                    print(f"Empty 'translation' in protocluster {cluster_id}, region {part} — skipping.")
 
             if not seq_records:
                 continue
